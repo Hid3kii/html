@@ -1,111 +1,178 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #e6e6fa; 
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
-    overflow: hidden; 
-    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ffe3ec 0%, #ffd6e8 50%, #ffc2dd 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
 }
 
 .hidden {
     display: none !important;
 }
 
-img {
-    width: 250px;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 10;
+#question-container,
+#schedule-container,
+#success-container {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 32px 28px;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(255, 105, 160, 0.25);
+}
+
+#question-container img,
+#success-container img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin: 0 8px;
 }
 
 h1 {
-    color: #333333;
-    font-size: 28px;
-    margin-bottom: 20px;
-    padding: 0 20px;
-    position: relative;
-    z-index: 10;
+    color: #d6336c;
+    font-size: 1.4rem;
+    margin: 16px 0 8px;
 }
 
 p {
-    color: #444444;
-    font-size: 18px;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 0 20px;
-    line-height: 1.5;
-    position: relative;
-    z-index: 10;
+    color: #6b6b6b;
+    font-size: 1rem;
+    line-height: 1.4;
 }
 
 #mensagem-fuga {
-    color: #dc3545;
-    font-size: 18px;
+    color: #d6336c;
     font-weight: bold;
-    min-height: 25px;
-    margin-bottom: 15px;
-    margin-top: 0;
+    min-height: 20px;
 }
 
 .buttons {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
-    gap: 20px; 
+    gap: 16px;
     position: relative;
-    z-index: 10;
 }
 
 button {
-    font-size: 20px;
-    font-weight: bold;
-    padding: 12px 40px;
     border: none;
-    border-radius: 8px;
+    border-radius: 999px;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 #btn-yes {
-    background-color: #28a745; 
+    background: #ff6fa5;
     color: white;
+    box-shadow: 0 6px 14px rgba(255, 111, 165, 0.4);
 }
 
 #btn-yes:hover {
-    transform: scale(1.1); 
+    transform: translateY(-2px);
 }
 
 #btn-no {
-    background-color: #dc3545; 
-    color: white;
-    position: relative; 
+    background: #f1f1f1;
+    color: #888;
+    position: relative;
 }
 
-#confetti-container {
-    position: fixed;
-    top: 0;
-    left: 0;
+/* TELA 2: agendamento */
+.data-sugerida {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.data-sugerida strong {
+    color: #d6336c;
+}
+
+.aviso-alternativa {
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.campo {
+    text-align: left;
+    margin-bottom: 16px;
+}
+
+.campo label {
+    display: block;
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.campo input {
     width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 2px solid #ffd6e8;
+    font-size: 1rem;
+    color: #333;
+    background: #fff8fb;
 }
 
-.confetti, .heart {
-    position: absolute;
-    top: -10vh;
-    animation: fall linear forwards;
+.campo input:focus {
+    outline: none;
+    border-color: #ff6fa5;
 }
 
-.heart {
-    font-size: 24px;
+#btn-confirmar {
+    width: 100%;
+    background: #ff6fa5;
+    color: white;
+    padding: 14px;
+    margin-top: 8px;
+    box-shadow: 0 6px 14px rgba(255, 111, 165, 0.4);
 }
 
-@keyframes fall {
-    0% { transform: translateY(0vh) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(110vh) rotate(360deg); opacity: 0.5; }
+#btn-confirmar:hover {
+    transform: translateY(-2px);
+}
+
+/* TELA 3: comprovante */
+.comprovante {
+    margin-top: 24px;
+    border: 2px dashed #ff9dc0;
+    border-radius: 16px;
+    padding: 20px;
+    background: #fff8fb;
+}
+
+.comprovante h2 {
+    color: #d6336c;
+    font-size: 1.1rem;
+    margin-top: 0;
+}
+
+.comprovante p {
+    margin: 8px 0;
+    color: #444;
+}
+
+.comprovante-selo {
+    margin-top: 12px;
+    display: inline-block;
+    background: #d6f5d6;
+    color: #2f9e44;
+    font-weight: bold;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 0.9rem;
 }

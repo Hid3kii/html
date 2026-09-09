@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Convite Especial </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- TELA 1: Pergunta inicial -->
+    <div id="question-container">
+        <img src="Nova pasta/goose.webp" alt="Ursinho fofo">
+
+        <h1>Vamos Sair no Sábado ?</h1>
+
+        <p id="mensagem-fuga"></p>
+
+        <div class="buttons">
+            <button id="btn-yes">SIM</button>
+            <button id="btn-no">NÃO</button>
+        </div>
+    </div>
+
+    <!-- TELA 2: Escolha de data e horário -->
+    <div id="schedule-container" class="hidden">
+        <h1>Combinando o encontro </h1>
+
+        <p class="data-sugerida">
+            Que tal dia <strong id="data-sugerida-texto"></strong>?
+        </p>
+        <p class="aviso-alternativa">
+            Caso essa data não dê, escolha uma outra abaixo:
+        </p>
+
+        <div class="campo">
+            <label for="input-data">Data alternativa</label>
+            <input type="date" id="input-data">
+        </div>
+
+        <div class="campo">
+            <label for="input-horario">Horário</label>
+            <input type="time" id="input-horario">
+        </div>
+
+        <button id="btn-confirmar">Confirmar</button>
+    </div>
+
+    <!-- TELA 3: Comprovante -->
+    <div id="success-container" class="hidden">
+        <img src="Nova pasta/gooseflower.webp" alt="Ursinhos se abraçando">
+        <img src="Nova pasta/Code_Generated_Image.png" alt="Ursinho fofo">
+
+        <h1>Confirmado! Nelson está feliz !</h1>
+        <p>Local é surpresa! porém se vc insitir eu falo...</p>
+
+        <div class="comprovante">
+            <h2>🎫 Comprovante de Encontro</h2>
+            <p><strong>Data:</strong> <span id="comprovante-data"></span></p>
+            <p><strong>Horário:</strong> <span id="comprovante-horario"></span></p>
+            <p class="comprovante-selo">Confirmado ✔</p>
+            <p> Tire um Print e mande o comprovante, não sei fazer para receber a resposta automática ainda kk </p>
+        </div>
+    </div>
+
+    <div id="confetti-container" class="hidden"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+ 
