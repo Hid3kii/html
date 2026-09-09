@@ -1,8 +1,6 @@
-// =========================================================
-// 📅 EDITE AQUI A DATA SUGERIDA (formato: "AAAA-MM-DD")
-// Exemplo: "2026-09-20"
+
 const DATA_SUGERIDA = "2026-09-12";
-// =========================================================
+
 
 const questionContainer = document.getElementById("question-container");
 const scheduleContainer = document.getElementById("schedule-container");
@@ -20,11 +18,9 @@ const btnConfirmar = document.getElementById("btn-confirmar");
 const comprovanteData = document.getElementById("comprovante-data");
 const comprovanteHorario = document.getElementById("comprovante-horario");
 
-// ---------------------------------------------------------
-// Utilidade: formata "AAAA-MM-DD" para "dia da semana, dd/mm/aaaa"
-// ---------------------------------------------------------
+
 function formatarData(dataISO) {
-    // Evita bug de fuso horário criando a data como local, não UTC
+
     const [ano, mes, dia] = dataISO.split("-").map(Number);
     const data = new Date(ano, mes - 1, dia);
 
@@ -41,12 +37,10 @@ function formatarData(dataISO) {
 }
 
 function formatarHorario(horario) {
-    return horario; // já vem como "HH:MM" do input type="time"
+    return horario;
 }
 
-// ---------------------------------------------------------
-// Frases engraçadinhas quando clica em NÃO
-// ---------------------------------------------------------
+
 const frasesFuga = [
     "Tenta de novo...",
     "Tem certeza?",
@@ -75,13 +69,10 @@ function moverBotaoNao() {
     btnNo.style.top = `${y}px`;
 }
 
-// ---------------------------------------------------------
-// Clique em SIM: vai para a tela de agendamento
-// ---------------------------------------------------------
 btnYes.addEventListener("click", () => {
     dataSugeridaTexto.textContent = formatarData(DATA_SUGERIDA);
 
-    // Impede escolher uma data alternativa no passado
+   
     const hoje = new Date();
     const hojeISO = hoje.toISOString().split("T")[0];
     inputData.min = hojeISO;
@@ -90,17 +81,13 @@ btnYes.addEventListener("click", () => {
     scheduleContainer.classList.remove("hidden");
 });
 
-// ---------------------------------------------------------
-// Clique em Confirmar: valida horário e mostra o comprovante
-// ---------------------------------------------------------
+
 btnConfirmar.addEventListener("click", () => {
     if (!inputHorario.value) {
         alert("Escolha um horário para confirmar o encontro!");
         return;
     }
 
-    // Se a pessoa escolheu uma data alternativa, usa ela.
-    // Caso contrário, mantém a data sugerida.
     const dataFinalISO = inputData.value ? inputData.value : DATA_SUGERIDA;
 
     comprovanteData.textContent = formatarData(dataFinalISO);
